@@ -33,8 +33,11 @@ export default class QBitProvider implements IProvider {
   private axios: AxiosInstance
 
   private constructor() {
+    const server = `${import.meta.env.VITE_DEPLOY_SERVER_URL || ''}`
+
     this.axios = axios.create({
-      baseURL: 'api/v2'
+      baseURL: server ? `${server}api/v2` : 'api/v2',
+      withCredentials: true
     })
 
     this.axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
