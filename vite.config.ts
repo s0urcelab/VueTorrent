@@ -37,6 +37,7 @@ export default defineConfig(({ mode }) => {
       }
     },
     define: {
+      'import.meta.env.VITE_DEPLOY_SERVER_URL': JSON.stringify(process.env.DEPLOY_SERVER_URL),
       'import.meta.env.VITE_PACKAGE_VERSION': JSON.stringify(process.env.npm_package_version),
       'process.env': {}
     },
